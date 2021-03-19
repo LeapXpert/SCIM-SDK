@@ -555,11 +555,6 @@ class ResourceEndpointHandler
                                                       (int)Math.min(effectiveStartIndex - 1 + effectiveCount,
                                                                     filteredResources.size()));
       }
-      else
-      {
-        // startIndex is greater than the number of entries available so we will return an empty list
-        filteredResources = Collections.emptyList();
-      }
       if (filteredResources.size() > effectiveCount)
       {
         log.warn("the service provider tried to return more results than allowed. Tried to return '"
