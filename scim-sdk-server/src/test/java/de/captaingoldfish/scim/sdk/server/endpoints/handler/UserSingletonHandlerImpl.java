@@ -5,6 +5,7 @@ import java.util.List;
 import de.captaingoldfish.scim.sdk.common.resources.User;
 import de.captaingoldfish.scim.sdk.common.schemas.SchemaAttribute;
 import de.captaingoldfish.scim.sdk.server.endpoints.authorize.Authorization;
+import java.util.Map;
 
 
 /**
@@ -34,7 +35,8 @@ public class UserSingletonHandlerImpl extends UserHandlerImpl
   public User getResource(String id,
                           Authorization authorization,
                           List<SchemaAttribute> attributes,
-                          List<SchemaAttribute> excludedAttributes)
+                          List<SchemaAttribute> excludedAttributes,
+                          Map<String, String> httpHeaders)
   {
     return getInMemoryMap().get(getInMemoryMap().keySet().iterator().next());
   }

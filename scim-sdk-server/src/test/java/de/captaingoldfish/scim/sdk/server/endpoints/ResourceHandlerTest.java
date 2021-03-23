@@ -2,6 +2,7 @@ package de.captaingoldfish.scim.sdk.server.endpoints;
 
 import java.util.List;
 
+import java.util.Map;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -57,7 +58,8 @@ public class ResourceHandlerTest
     public User getResource(String id,
                             Authorization authorization,
                             List<SchemaAttribute> attributes,
-                            List<SchemaAttribute> excludedAttributes)
+                            List<SchemaAttribute> excludedAttributes,
+        Map<String, String> httpHeaders)
     {
       return null;
     }
@@ -101,7 +103,7 @@ public class ResourceHandlerTest
     }
 
     @Override
-    public ResourceNode getResource(String id, Authorization authorization, List attributes, List excludedAttributes)
+    public ResourceNode getResource(String id, Authorization authorization, List attributes, List excludedAttributes, Map httpHeaders)
     {
       return null;
     }

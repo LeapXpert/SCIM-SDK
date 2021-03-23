@@ -332,7 +332,8 @@ class ResourceEndpointHandler
       ResourceNode resourceNode = resourceHandler.getResource(id,
                                                               authorization,
                                                               attributesList,
-                                                              excludedAttributesList);
+                                                              excludedAttributesList,
+                                                              httpHeaders);
       if (resourceNode == null)
       {
         throw new ResourceNotFoundException("the '" + resourceType.getName() + "' resource with id '" + id + "' does "
@@ -768,7 +769,7 @@ class ResourceEndpointHandler
       {
         ETagHandler.validateVersion(serviceProvider,
                                     resourceType,
-                                    () -> resourceHandler.getResource(id, authorization, null, null),
+                                    () -> resourceHandler.getResource(id, authorization, null, null, httpHeaders),
                                     httpHeaders);
       }
       catch (ResourceNotFoundException ex)
@@ -864,7 +865,7 @@ class ResourceEndpointHandler
       {
         ETagHandler.validateVersion(serviceProvider,
                                     resourceType,
-                                    () -> resourceHandler.getResource(id, authorization, null, null),
+                                    () -> resourceHandler.getResource(id, authorization, null, null, httpHeaders),
                                     httpHeaders);
       }
       catch (ResourceNotFoundException ex)
@@ -965,7 +966,8 @@ class ResourceEndpointHandler
       ResourceNode resourceNode = resourceHandler.getResource(id,
                                                               authorization,
                                                               Collections.emptyList(),
-                                                              Collections.emptyList());
+                                                              Collections.emptyList(),
+                                                              httpHeaders);
       if (resourceNode == null)
       {
         throw new ResourceNotFoundException("the '" + resourceType.getName() + "' resource with id '" + id + "' does "

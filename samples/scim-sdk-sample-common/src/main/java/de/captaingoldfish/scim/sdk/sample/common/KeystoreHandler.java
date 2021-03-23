@@ -59,7 +59,8 @@ public class KeystoreHandler extends ResourceHandler<ScimKeystore>
   public ScimKeystore getResource(String id,
                                   Authorization authorization,
                                   List<SchemaAttribute> attributes,
-                                  List<SchemaAttribute> excludedAttributes)
+                                  List<SchemaAttribute> excludedAttributes,
+                                  Map<String, String> httpHeaders)
   {
     return keystoreMap.get(id);
   }

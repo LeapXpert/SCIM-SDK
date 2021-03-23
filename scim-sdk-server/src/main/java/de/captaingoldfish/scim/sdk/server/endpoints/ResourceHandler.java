@@ -3,6 +3,7 @@ package de.captaingoldfish.scim.sdk.server.endpoints;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.function.Supplier;
 
@@ -117,7 +118,8 @@ public abstract class ResourceHandler<T extends ResourceNode>
   public abstract T getResource(String id,
                                 Authorization authorization,
                                 List<SchemaAttribute> attributes,
-                                List<SchemaAttribute> excludedAttributes);
+                                List<SchemaAttribute> excludedAttributes,
+                                Map<String, String> httpHeaders);
 
   /**
    * queries several resources based on the following values

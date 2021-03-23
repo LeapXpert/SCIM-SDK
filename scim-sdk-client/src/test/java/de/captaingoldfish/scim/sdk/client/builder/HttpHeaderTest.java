@@ -484,7 +484,7 @@ public class HttpHeaderTest extends HttpServerMockup
       wasCalled.set(true);
     });
 
-    User updateResource = userHandler.getResource(existingUserId, null, null, null);
+    User updateResource = userHandler.getResource(existingUserId, null, null, null, null);
     new UpdateBuilder<>(getServerUrl(), EndpointPaths.USERS, existingUserId, User.class,
                         scimHttpClient).setResource(updateResource).sendRequest();
     Assertions.assertTrue(wasCalled.get());
@@ -516,7 +516,7 @@ public class HttpHeaderTest extends HttpServerMockup
       wasCalled.set(true);
     });
 
-    User updateResource = userHandler.getResource(existingUserId, null, null, null);
+    User updateResource = userHandler.getResource(existingUserId, null, null, null, null);
     new UpdateBuilder<>(getServerUrl(), EndpointPaths.USERS, existingUserId, User.class,
                         scimHttpClient).setResource(updateResource).sendRequest(preferredHeaders);
     Assertions.assertTrue(wasCalled.get());
@@ -548,7 +548,7 @@ public class HttpHeaderTest extends HttpServerMockup
       wasCalled.set(true);
     });
 
-    User updateResource = userHandler.getResource(existingUserId, null, null, null);
+    User updateResource = userHandler.getResource(existingUserId, null, null, null, null);
     new UpdateBuilder<>(getServerUrl(), EndpointPaths.USERS, existingUserId, User.class,
                         scimHttpClient).setResource(updateResource).sendRequestWithMultiHeaders(preferredHeaders);
     Assertions.assertTrue(wasCalled.get());

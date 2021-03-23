@@ -1,5 +1,6 @@
 package de.captaingoldfish.scim.sdk.server.endpoints.handler;
 
+import java.util.HashMap;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -68,7 +69,7 @@ public class ResourceTypeHandlerTest
                           ResourceTypeNames.ME, ResourceTypeNames.SERVICE_PROVIDER_CONFIG, ResourceTypeNames.SCHEMA})
   public void testGetResourceTypeByName(String name)
   {
-    ResourceType resourceType = resourceTypeHandler.getResource(name, null, null, null);
+    ResourceType resourceType = resourceTypeHandler.getResource(name, null, null, null, new HashMap<>());
     Assertions.assertEquals(name, resourceType.getName());
     log.debug(resourceType.toPrettyString());
     Assertions.assertTrue(resourceType.getMeta().isPresent());
@@ -115,7 +116,7 @@ public class ResourceTypeHandlerTest
   public void testGetResourceWithInvalidId()
   {
     Assertions.assertThrows(ResourceNotFoundException.class,
-                            () -> resourceTypeHandler.getResource("nonExistingResource", null, null, null));
+                            () -> resourceTypeHandler.getResource("nonExistingResource", null, null, null, null));
   }
 
   /**

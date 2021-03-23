@@ -1,6 +1,7 @@
 package de.captaingoldfish.scim.sdk.server.endpoints.handler;
 
 import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 
 import de.captaingoldfish.scim.sdk.common.constants.enums.SortOrder;
@@ -60,7 +61,8 @@ public class ServiceProviderHandler extends ResourceHandler<ServiceProvider>
   public ServiceProvider getResource(String id,
                                      Authorization authorization,
                                      List<SchemaAttribute> attributes,
-                                     List<SchemaAttribute> excludedAttributes)
+                                     List<SchemaAttribute> excludedAttributes,
+                                     Map<String, String> httpHeaders)
   {
     return serviceProvider;
   }

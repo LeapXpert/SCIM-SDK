@@ -56,7 +56,8 @@ public class GroupHandlerImpl extends ResourceHandler<Group>
   public Group getResource(String id,
                            Authorization authorization,
                            List<SchemaAttribute> attributes,
-                           List<SchemaAttribute> excludedAttributes)
+                           List<SchemaAttribute> excludedAttributes,
+                           Map<String, String> httpHeaders)
   {
     return inMemoryMap.get(id);
   }
@@ -81,7 +82,7 @@ public class GroupHandlerImpl extends ResourceHandler<Group>
   public Group updateResource(Group resource, Authorization authorization)
   {
     String groupId = resource.getId().get();
-    Group oldGroup = getResource(groupId, null, null, null);
+    Group oldGroup = getResource(groupId, null, null, null, null);
     if (oldGroup == null)
     {
       throw new ResourceNotFoundException("resource with id '" + groupId + "' does not exist", null, null);

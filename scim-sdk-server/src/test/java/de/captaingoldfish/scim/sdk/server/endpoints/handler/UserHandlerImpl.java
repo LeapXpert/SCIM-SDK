@@ -67,7 +67,8 @@ public class UserHandlerImpl extends ResourceHandler<User>
   public User getResource(String id,
                           Authorization authorization,
                           List<SchemaAttribute> attributes,
-                          List<SchemaAttribute> excludedAttributes)
+                          List<SchemaAttribute> excludedAttributes,
+                          Map<String, String> httpHeaders)
   {
     User user = inMemoryMap.get(id);
     if (user != null)

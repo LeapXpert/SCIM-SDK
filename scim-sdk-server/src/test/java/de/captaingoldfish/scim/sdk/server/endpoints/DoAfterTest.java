@@ -104,7 +104,8 @@ public class DoAfterTest extends AbstractEndpointTest
            .getResource(Mockito.anyString(),
                         Mockito.any(),
                         Mockito.eq(Collections.emptyList()),
-                        Mockito.eq(Collections.emptyList()));
+                        Mockito.eq(Collections.emptyList()),
+                        Mockito.any());
 
     ScimResponse scimResponse = resourceEndpoint.handleRequest(getUrl(EndpointPaths.USERS) + "/1",
                                                                HttpMethod.GET,

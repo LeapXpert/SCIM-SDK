@@ -91,7 +91,8 @@ public class GroupHandler extends ResourceHandler<Group>
   public Group getResource(String id,
                            Authorization authorization,
                            List<SchemaAttribute> attributes,
-                           List<SchemaAttribute> excludedAttributes)
+                           List<SchemaAttribute> excludedAttributes,
+                           Map<String, String> httpHeaders)
   {
     return inMemoryMap.get(id);
   }

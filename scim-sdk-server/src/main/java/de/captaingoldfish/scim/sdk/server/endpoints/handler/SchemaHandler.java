@@ -2,6 +2,7 @@ package de.captaingoldfish.scim.sdk.server.endpoints.handler;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -56,7 +57,8 @@ public class SchemaHandler extends ResourceHandler<Schema>
   public Schema getResource(String id,
                             Authorization authorization,
                             List<SchemaAttribute> attributes,
-                            List<SchemaAttribute> excludedAttributes)
+                            List<SchemaAttribute> excludedAttributes,
+                            Map<String, String> httpHeaders)
   {
     Schema schema = resourceTypeFactory.getAllResourceTypes()
                                        .stream()

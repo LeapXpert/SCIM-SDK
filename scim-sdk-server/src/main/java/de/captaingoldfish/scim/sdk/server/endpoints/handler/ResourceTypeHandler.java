@@ -2,6 +2,7 @@ package de.captaingoldfish.scim.sdk.server.endpoints.handler;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 
 import de.captaingoldfish.scim.sdk.common.constants.enums.SortOrder;
@@ -58,7 +59,8 @@ public class ResourceTypeHandler extends ResourceHandler<ResourceType>
   public ResourceType getResource(String id,
                                   Authorization authorization,
                                   List<SchemaAttribute> attributes,
-                                  List<SchemaAttribute> excludedAttributes)
+                                  List<SchemaAttribute> excludedAttributes,
+                                  Map<String, String> httpHeaders)
   {
     return resourceTypeFactory.getResourceTypeByName(id).orElseThrow(() -> {
       return new ResourceNotFoundException("a ResourceType with the name '" + id + "' does not exist", null, null);
