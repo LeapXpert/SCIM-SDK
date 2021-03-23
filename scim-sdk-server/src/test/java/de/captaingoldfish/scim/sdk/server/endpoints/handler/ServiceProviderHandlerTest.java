@@ -128,6 +128,7 @@ public class ServiceProviderHandlerTest
   @Test
   public void testDeleteProviders()
   {
-    Assertions.assertThrows(NotImplementedException.class, () -> serviceProviderHandler.deleteResource(null, null));
+    Assertions.assertThrows(NotImplementedException.class, () -> serviceProviderHandler.deleteResource(null, null,
+        null));
   }
 }

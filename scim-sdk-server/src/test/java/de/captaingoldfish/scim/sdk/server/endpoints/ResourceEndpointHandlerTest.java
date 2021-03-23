@@ -186,7 +186,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                                                                          Collections.emptyMap(),
                                                                          null);
     MatcherAssert.assertThat(deleteResponse.getClass(), Matchers.typeCompatibleWith(DeleteResponse.class));
-    Mockito.verify(userHandler, Mockito.times(1)).deleteResource(userId, null);
+    Mockito.verify(userHandler, Mockito.times(1)).deleteResource(userId, null, null);
     ScimResponse scimResponse = Assertions.assertDoesNotThrow(() -> resourceEndpointHandler.getResource(endpoint,
                                                                                                         userId));
     MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(ErrorResponse.class));
@@ -559,7 +559,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
   public void testThrowScimExceptionOnDeleteResource()
   {
     ResourceNotFoundException exception = new ResourceNotFoundException("blubb", null, null);
-    Mockito.doThrow(exception).when(userHandler).deleteResource(Mockito.any(), Mockito.isNull());
+    Mockito.doThrow(exception).when(userHandler).deleteResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     ScimResponse scimResponse = resourceEndpointHandler.deleteResource("/Users",
                                                                        "123456",
                                                                        Collections.emptyMap(),
@@ -648,7 +648,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
   public void testThrowRuntimeExceptionOnDeleteResource()
   {
     RuntimeException exception = new RuntimeException("blubb");
-    Mockito.doThrow(exception).when(userHandler).deleteResource(Mockito.any(), Mockito.isNull());
+    Mockito.doThrow(exception).when(userHandler).deleteResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     ScimResponse scimResponse = resourceEndpointHandler.deleteResource("/Users",
                                                                        "123456",
                                                                        Collections.emptyMap(),

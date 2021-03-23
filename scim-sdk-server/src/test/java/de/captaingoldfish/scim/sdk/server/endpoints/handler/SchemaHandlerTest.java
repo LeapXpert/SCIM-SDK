@@ -138,6 +138,7 @@ public class SchemaHandlerTest
   @Test
   public void testDeleteResource()
   {
-    Assertions.assertThrows(NotImplementedException.class, () -> schemaHandler.deleteResource("blubb", null));
+    Assertions.assertThrows(NotImplementedException.class, () -> schemaHandler.deleteResource("blubb", null,
+        null));
   }
 }

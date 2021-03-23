@@ -874,7 +874,7 @@ class ResourceEndpointHandler
         throw new ResourceNotFoundException("the '" + resourceType.getName() + "' resource with id '" + id + "' does "
                                             + "not exist", ex, null);
       }
-      resourceHandler.deleteResource(id, authorization);
+      resourceHandler.deleteResource(id, authorization, httpHeaders);
       return new DeleteResponse();
     }
     catch (ScimException ex)

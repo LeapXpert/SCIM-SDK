@@ -161,7 +161,7 @@ public class BulkEndpointTest extends AbstractBulkTest
     bulkResponse = (BulkResponse)scimResponse;
     Assertions.assertEquals(HttpStatus.OK, bulkResponse.getHttpStatus());
     Mockito.verify(userHandler, Mockito.times(maxOperations)).updateResource(Mockito.any(), Mockito.isNull(), Mockito.any());
-    Mockito.verify(userHandler, Mockito.times(maxOperations)).deleteResource(Mockito.any(), Mockito.isNull());
+    Mockito.verify(userHandler, Mockito.times(maxOperations)).deleteResource(Mockito.any(), Mockito.isNull(), Mockito.any());
 
     List<BulkResponseOperation> responseOperations = bulkResponse.getBulkResponseOperations();
     for ( BulkResponseOperation bulkResponseOperation : responseOperations.subList(0, maxOperations - 1) )

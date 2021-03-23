@@ -111,7 +111,8 @@ public class SchemaHandler extends ResourceHandler<Schema>
    * deleting of schemas not supported
    */
   @Override
-  public void deleteResource(String id, Authorization authorization)
+  public void deleteResource(String id, Authorization authorization,
+      Map<String, String> httpHeaders)
   {
     throw new NotImplementedException(ERROR_MESSAGE_SUPPLIER.apply("delete"));
   }

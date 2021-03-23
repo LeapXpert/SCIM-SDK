@@ -149,7 +149,8 @@ public class ResourceTypeHandlerTest
   @Test
   public void testDeleteResource()
   {
-    Assertions.assertThrows(NotImplementedException.class, () -> resourceTypeHandler.deleteResource("blubb", null));
+    Assertions.assertThrows(NotImplementedException.class, () -> resourceTypeHandler.deleteResource("blubb", null,
+        null));
   }
 
   /**

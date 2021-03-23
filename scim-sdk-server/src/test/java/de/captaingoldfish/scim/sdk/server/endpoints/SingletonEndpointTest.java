@@ -108,7 +108,7 @@ public class SingletonEndpointTest
                         Mockito.eq(Collections.emptyList()),
                         Mockito.any());
     Mockito.verify(userHandler, Mockito.times(0)).updateResource(Mockito.any(), Mockito.isNull(), Mockito.any());
-    Mockito.verify(userHandler, Mockito.times(0)).deleteResource(Mockito.any(), Mockito.isNull());
+    Mockito.verify(userHandler, Mockito.times(0)).deleteResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     Mockito.verify(userHandler, Mockito.times(0))
            .listResources(Mockito.anyLong(),
                           Mockito.anyInt(),

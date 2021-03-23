@@ -113,7 +113,8 @@ public class KeystoreHandler extends ResourceHandler<ScimKeystore>
   }
 
   @Override
-  public void deleteResource(String id, Authorization authorization)
+  public void deleteResource(String id, Authorization authorization,
+      Map<String, String> httpHeaders)
   {
     ScimKeystore oldResource = keystoreMap.get(id);
     if (oldResource == null)

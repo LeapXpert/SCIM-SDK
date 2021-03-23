@@ -142,7 +142,8 @@ public class UserHandlerImpl extends ResourceHandler<User>
   }
 
   @Override
-  public void deleteResource(String id, Authorization authorization)
+  public void deleteResource(String id, Authorization authorization,
+      Map<String, String> httpHeaders)
   {
     if (inMemoryMap.containsKey(id))
     {

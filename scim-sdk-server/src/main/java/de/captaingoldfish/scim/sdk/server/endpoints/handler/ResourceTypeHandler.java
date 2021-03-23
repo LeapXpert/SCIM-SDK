@@ -98,7 +98,8 @@ public class ResourceTypeHandler extends ResourceHandler<ResourceType>
    * deleting of resource types not supported
    */
   @Override
-  public void deleteResource(String id, Authorization authorization)
+  public void deleteResource(String id, Authorization authorization,
+      Map<String, String> httpHeaders)
   {
     throw new NotImplementedException(ERROR_MESSAGE_SUPPLIER.apply("delete"));
   }

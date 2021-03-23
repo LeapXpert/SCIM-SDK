@@ -85,7 +85,8 @@ public class ResourceHandlerTest
     }
 
     @Override
-    public void deleteResource(String id, Authorization authorization)
+    public void deleteResource(String id, Authorization authorization,
+        Map<String, String> httpHeaders)
     {
 
     }
@@ -132,7 +133,8 @@ public class ResourceHandlerTest
     }
 
     @Override
-    public void deleteResource(String id, Authorization authorization)
+    public void deleteResource(String id, Authorization authorization,
+        Map httpHeaders)
     {
 
     }

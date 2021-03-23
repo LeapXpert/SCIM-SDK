@@ -172,12 +172,12 @@ public abstract class ResourceHandler<T extends ResourceNode>
 
   /**
    * permanently deletes the resource with the given id
-   *
-   * @param id the id of the resource to delete
+   *  @param id the id of the resource to delete
    * @param authorization should return the roles of an user and may contain arbitrary data needed in the
-   *          handler implementation
+   * @param httpHeaders
    */
-  public abstract void deleteResource(String id, Authorization authorization);
+  public abstract void deleteResource(String id, Authorization authorization,
+      Map<String, String> httpHeaders);
 
   /**
    * @return true if the value in the in the corresponding value in the
