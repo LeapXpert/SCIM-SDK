@@ -179,12 +179,13 @@ class ResourceEndpointHandler
    *          provider configuration that is also an optional attribute. If both ways fail an exception will be
    *          thrown
    * @param authorization
+   * @param httpHeaders
    * @return the scim response for the client
    */
   protected ScimResponse createResource(String endpoint,
-                                        String resourceDocument,
-                                        Supplier<String> baseUrlSupplier,
-                                        Authorization authorization)
+      String resourceDocument,
+      Supplier<String> baseUrlSupplier,
+      Authorization authorization, Map<String, String> httpHeaders)
   {
     try
     {
@@ -209,7 +210,7 @@ class ResourceEndpointHandler
       meta.setResourceType(resourceType.getName());
       resourceNode.remove(AttributeNames.RFC7643.META);
       resourceNode.setMeta(meta);
-      resourceNode = resourceHandler.createResource(resourceNode, authorization);
+      resourceNode = resourceHandler.createResource(resourceNode, authorization, httpHeaders);
       if (resourceNode == null)
       {
         throw new NotImplementedException("create was not implemented for resourceType '" + resourceType.getName()

@@ -43,7 +43,8 @@ public class ServiceProviderHandler extends ResourceHandler<ServiceProvider>
    * creating of service provider configurations not supported
    */
   @Override
-  public ServiceProvider createResource(ServiceProvider resource, Authorization authorization)
+  public ServiceProvider createResource(ServiceProvider resource, Authorization authorization,
+      Map<String, String> httpHeaders)
   {
     throw new NotImplementedException(ERROR_MESSAGE_SUPPLIER.apply("create"));
   }

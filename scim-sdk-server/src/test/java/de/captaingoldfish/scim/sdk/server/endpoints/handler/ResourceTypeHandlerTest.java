@@ -128,7 +128,7 @@ public class ResourceTypeHandlerTest
     JsonNode userResourceTypeNode = JsonHelper.loadJsonDocument(ClassPathReferences.USER_RESOURCE_TYPE_JSON);
     ResourceType userResourceType = ResourceTypeFactoryUtil.getResourceType(resourceTypeFactory, userResourceTypeNode);
     Assertions.assertThrows(NotImplementedException.class,
-                            () -> resourceTypeHandler.createResource(userResourceType, null));
+                            () -> resourceTypeHandler.createResource(userResourceType, null, null));
   }
 
   /**

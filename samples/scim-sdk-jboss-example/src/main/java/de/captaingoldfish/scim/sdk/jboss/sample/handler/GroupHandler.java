@@ -68,7 +68,8 @@ public class GroupHandler extends ResourceHandler<Group>
    * {@inheritDoc}
    */
   @Override
-  public Group createResource(Group resource, Authorization authorization)
+  public Group createResource(Group resource, Authorization authorization,
+      Map<String, String> httpHeaders)
   {
     final String groupId = UUID.randomUUID().toString();
     if (inMemoryMap.containsKey(groupId))

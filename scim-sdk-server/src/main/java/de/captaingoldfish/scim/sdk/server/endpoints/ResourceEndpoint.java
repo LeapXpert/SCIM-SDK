@@ -315,7 +315,8 @@ public final class ResourceEndpoint extends ResourceEndpointHandler
         else
         {
           EndpointFeatureHandler.handleEndpointFeatures(uriInfos.getResourceType(), EndpointType.CREATE, authorization);
-          return createResource(uriInfos.getResourceEndpoint(), requestBody, uriInfos::getBaseUri, authorization);
+          return createResource(uriInfos.getResourceEndpoint(), requestBody, uriInfos::getBaseUri, authorization,
+              uriInfos.getHttpHeaders());
         }
       case GET:
         if (uriInfos.isSearchRequest() && !uriInfos.getResourceType().getFeatures().isSingletonEndpoint())

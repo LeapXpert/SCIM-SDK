@@ -67,7 +67,8 @@ public class UserHandler extends ResourceHandler<User>
    * {@inheritDoc}
    */
   @Override
-  public User createResource(User resource, Authorization authorization)
+  public User createResource(User resource, Authorization authorization,
+      Map<String, String> httpHeaders)
   {
     final String userId = UUID.randomUUID().toString();
     if (inMemoryMap.containsKey(userId))

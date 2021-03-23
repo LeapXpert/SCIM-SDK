@@ -109,7 +109,8 @@ public class ServiceProviderHandlerTest
   @Test
   public void testCreateProviders()
   {
-    Assertions.assertThrows(NotImplementedException.class, () -> serviceProviderHandler.createResource(null, null));
+    Assertions.assertThrows(NotImplementedException.class, () -> serviceProviderHandler.createResource(null, null,
+        null));
   }
 
   /**

@@ -45,7 +45,8 @@ public class SchemaHandler extends ResourceHandler<Schema>
    * creating of schemas not supported
    */
   @Override
-  public Schema createResource(Schema resource, Authorization authorization)
+  public Schema createResource(Schema resource, Authorization authorization,
+      Map<String, String> httpHeaders)
   {
     throw new NotImplementedException(ERROR_MESSAGE_SUPPLIER.apply("create"));
   }

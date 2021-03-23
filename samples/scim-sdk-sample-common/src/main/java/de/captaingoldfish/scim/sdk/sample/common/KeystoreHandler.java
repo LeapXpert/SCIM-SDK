@@ -32,7 +32,8 @@ public class KeystoreHandler extends ResourceHandler<ScimKeystore>
   private Map<String, ScimKeystore> keystoreMap = new HashMap<>();
 
   @Override
-  public ScimKeystore createResource(ScimKeystore resource, Authorization authorization)
+  public ScimKeystore createResource(ScimKeystore resource, Authorization authorization,
+      Map<String, String> httpHeaders)
   {
     // names should be unique so find if the name of the new resource is already taken
     ScimKeystore oldResource = keystoreMap.values()

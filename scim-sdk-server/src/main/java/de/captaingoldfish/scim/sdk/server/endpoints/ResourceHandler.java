@@ -97,9 +97,11 @@ public abstract class ResourceHandler<T extends ResourceNode>
    * @param resource the resource to store
    * @param authorization should return the roles of an user and may contain arbitrary data needed in the
    *          handler implementation
+   * @param httpHeaders
    * @return the stored resource with additional meta information as id, created, lastModified timestamps etc.
    */
-  public abstract T createResource(T resource, Authorization authorization);
+  public abstract T createResource(T resource, Authorization authorization,
+      Map<String, String> httpHeaders);
 
   /**
    * extract a resource by its id

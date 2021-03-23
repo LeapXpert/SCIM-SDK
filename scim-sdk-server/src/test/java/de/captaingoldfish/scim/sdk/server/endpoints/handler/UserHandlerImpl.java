@@ -43,7 +43,8 @@ public class UserHandlerImpl extends ResourceHandler<User>
   private Map<String, User> inMemoryMap = new HashMap<>();
 
   @Override
-  public User createResource(User resource, Authorization authorization)
+  public User createResource(User resource, Authorization authorization,
+      Map<String, String> httpHeaders)
   {
     Assertions.assertTrue(resource.getMeta().isPresent());
     Meta meta = resource.getMeta().get();

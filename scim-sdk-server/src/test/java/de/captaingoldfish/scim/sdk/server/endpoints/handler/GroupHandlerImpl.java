@@ -36,7 +36,8 @@ public class GroupHandlerImpl extends ResourceHandler<Group>
   private Map<String, Group> inMemoryMap = new HashMap<>();
 
   @Override
-  public Group createResource(Group resource, Authorization authorization)
+  public Group createResource(Group resource, Authorization authorization,
+      Map<String, String> httpHeaders)
   {
     final String groupId = UUID.randomUUID().toString();
     if (inMemoryMap.containsKey(groupId))

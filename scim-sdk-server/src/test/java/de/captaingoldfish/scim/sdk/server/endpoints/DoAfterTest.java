@@ -158,7 +158,7 @@ public class DoAfterTest extends AbstractEndpointTest
       counter.incrementAndGet();
     };
 
-    Mockito.doThrow(ConflictException.class).when(userHandler).createResource(Mockito.any(), Mockito.any());
+    Mockito.doThrow(ConflictException.class).when(userHandler).createResource(Mockito.any(), Mockito.any(), Mockito.any());
 
     BulkRequest bulkRequest = BulkRequest.builder()
                                          .failOnErrors(0)
@@ -189,7 +189,7 @@ public class DoAfterTest extends AbstractEndpointTest
       counter.incrementAndGet();
     };
 
-    Mockito.doThrow(NullPointerException.class).when(userHandler).createResource(Mockito.any(), Mockito.any());
+    Mockito.doThrow(NullPointerException.class).when(userHandler).createResource(Mockito.any(), Mockito.any(), Mockito.any());
 
     BulkRequest bulkRequest = BulkRequest.builder()
                                          .failOnErrors(0)

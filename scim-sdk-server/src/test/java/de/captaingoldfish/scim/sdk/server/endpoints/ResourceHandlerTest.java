@@ -49,7 +49,8 @@ public class ResourceHandlerTest
   {
 
     @Override
-    public User createResource(User resource, Authorization authorization)
+    public User createResource(User resource, Authorization authorization,
+        Map<String, String> httpHeaders)
     {
       return null;
     }
@@ -99,7 +100,8 @@ public class ResourceHandlerTest
   {
 
     @Override
-    public ResourceNode createResource(ResourceNode resource, Authorization authorization)
+    public ResourceNode createResource(ResourceNode resource, Authorization authorization,
+        Map httpHeaders)
     {
       return null;
     }

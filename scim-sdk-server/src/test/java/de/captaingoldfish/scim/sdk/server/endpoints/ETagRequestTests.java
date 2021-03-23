@@ -85,7 +85,7 @@ public class ETagRequestTests
       ScimResponse scimResponse = resourceEndpointHandler.createResource(EndpointPaths.USERS,
                                                                          user.toString(),
                                                                          getBaseUrlSupplier(),
-                                                                         null);
+                                                                         null, null);
       MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(CreateResponse.class));
       createdUser = JsonHelper.copyResourceToObject(scimResponse, User.class);
       Assertions.assertTrue(createdUser.getMeta().isPresent());

@@ -47,7 +47,8 @@ public class ResourceTypeHandler extends ResourceHandler<ResourceType>
    * creating of resource types not supported
    */
   @Override
-  public ResourceType createResource(ResourceType resource, Authorization authorization)
+  public ResourceType createResource(ResourceType resource, Authorization authorization,
+      Map<String, String> httpHeaders)
   {
     throw new NotImplementedException(ERROR_MESSAGE_SUPPLIER.apply("create"));
   }
