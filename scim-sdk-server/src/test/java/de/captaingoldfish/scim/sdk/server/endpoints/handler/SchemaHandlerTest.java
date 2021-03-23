@@ -128,7 +128,8 @@ public class SchemaHandlerTest
   {
     JsonNode userResourceTypeNode = JsonHelper.loadJsonDocument(ClassPathReferences.USER_SCHEMA_JSON);
     Schema schema = new Schema(userResourceTypeNode);
-    Assertions.assertThrows(NotImplementedException.class, () -> schemaHandler.updateResource(schema, null));
+    Assertions.assertThrows(NotImplementedException.class, () -> schemaHandler.updateResource(schema, null,
+        null));
   }
 
   /**

@@ -118,7 +118,8 @@ public class GroupHandler extends ResourceHandler<Group>
    * {@inheritDoc}
    */
   @Override
-  public Group updateResource(Group resource, Authorization authorization)
+  public Group updateResource(Group resource, Authorization authorization,
+      Map<String, String> httpHeaders)
   {
     String groupId = resource.getId().get();
     Group oldGroup = inMemoryMap.get(groupId);

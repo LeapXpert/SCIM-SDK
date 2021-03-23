@@ -101,7 +101,8 @@ public class SchemaHandler extends ResourceHandler<Schema>
    * updating of schemas not supported
    */
   @Override
-  public Schema updateResource(Schema schema, Authorization authorization)
+  public Schema updateResource(Schema schema, Authorization authorization,
+      Map<String, String> httpHeaders)
   {
     throw new NotImplementedException(ERROR_MESSAGE_SUPPLIER.apply("update"));
   }

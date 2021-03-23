@@ -79,7 +79,8 @@ public class GroupHandlerImpl extends ResourceHandler<Group>
   }
 
   @Override
-  public Group updateResource(Group resource, Authorization authorization)
+  public Group updateResource(Group resource, Authorization authorization,
+      Map<String, String> httpHeaders)
   {
     String groupId = resource.getId().get();
     Group oldGroup = getResource(groupId, null, null, null, null);

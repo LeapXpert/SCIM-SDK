@@ -118,7 +118,8 @@ public class UserHandler extends ResourceHandler<User>
    * {@inheritDoc}
    */
   @Override
-  public User updateResource(User resource, Authorization authorization)
+  public User updateResource(User resource, Authorization authorization,
+      Map<String, String> httpHeaders)
   {
     String userId = resource.getId().get();
     User oldUser = inMemoryMap.get(userId);

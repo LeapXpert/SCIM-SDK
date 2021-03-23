@@ -148,7 +148,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
     Mockito.verify(userHandler, Mockito.times(1)).createResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(0))
            .getResource(Mockito.any(), Mockito.isNull(), Mockito.isNull(), Mockito.isNull(), Mockito.isNull());
-    Mockito.verify(userHandler, Mockito.times(0)).updateResource(Mockito.any(), Mockito.isNull());
+    Mockito.verify(userHandler, Mockito.times(0)).updateResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     Mockito.verify(userHandler, Mockito.times(0)).deleteResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(0))
            .listResources(Mockito.anyLong(),
@@ -194,7 +194,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
     Mockito.verify(userHandler, Mockito.times(1)).createResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(0))
            .getResource(Mockito.any(), Mockito.isNull(), Mockito.isNull(), Mockito.isNull(), Mockito.isNull());
-    Mockito.verify(userHandler, Mockito.times(0)).updateResource(Mockito.any(), Mockito.isNull());
+    Mockito.verify(userHandler, Mockito.times(0)).updateResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     Mockito.verify(userHandler, Mockito.times(0)).deleteResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(0))
            .listResources(Mockito.anyLong(),
@@ -277,7 +277,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                         Mockito.eq(Collections.emptyList()),
                         Mockito.eq(Collections.emptyList()),
                         Mockito.isNull());
-    Mockito.verify(userHandler, Mockito.times(0)).updateResource(Mockito.any(), Mockito.isNull());
+    Mockito.verify(userHandler, Mockito.times(0)).updateResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     Mockito.verify(userHandler, Mockito.times(0)).deleteResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(0))
            .listResources(Mockito.anyLong(),
@@ -335,7 +335,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                         Mockito.eq(Collections.emptyList()),
                         Mockito.eq(Collections.emptyList()),
                         Mockito.isNull());
-    Mockito.verify(userHandler, Mockito.times(0)).updateResource(Mockito.any(), Mockito.isNull());
+    Mockito.verify(userHandler, Mockito.times(0)).updateResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     Mockito.verify(userHandler, Mockito.times(0)).deleteResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(0))
            .listResources(Mockito.anyLong(),
@@ -382,7 +382,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
     Mockito.verify(userHandler, Mockito.times(0)).createResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(0))
            .getResource(Mockito.any(), Mockito.isNull(), Mockito.isNull(), Mockito.isNull(), Mockito.isNull());
-    Mockito.verify(userHandler, Mockito.times(1)).updateResource(Mockito.any(), Mockito.isNull());
+    Mockito.verify(userHandler, Mockito.times(1)).updateResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     Mockito.verify(userHandler, Mockito.times(0)).deleteResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(0))
            .listResources(Mockito.anyLong(),
@@ -439,7 +439,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
     Mockito.verify(userHandler, Mockito.times(0)).createResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(0))
            .getResource(Mockito.any(), Mockito.isNull(), Mockito.isNull(), Mockito.isNull(), Mockito.isNull());
-    Mockito.verify(userHandler, Mockito.times(1)).updateResource(Mockito.any(), Mockito.isNull());
+    Mockito.verify(userHandler, Mockito.times(1)).updateResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     Mockito.verify(userHandler, Mockito.times(0)).deleteResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(0))
            .listResources(Mockito.anyLong(),
@@ -481,7 +481,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
     Mockito.verify(userHandler, Mockito.times(0)).createResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(0))
            .getResource(Mockito.any(), Mockito.isNull(), Mockito.isNull(), Mockito.isNull(), Mockito.isNull());
-    Mockito.verify(userHandler, Mockito.times(0)).updateResource(Mockito.any(), Mockito.isNull());
+    Mockito.verify(userHandler, Mockito.times(0)).updateResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     Mockito.verify(userHandler, Mockito.times(1)).deleteResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(0))
            .listResources(Mockito.anyLong(),
@@ -534,7 +534,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
     Mockito.verify(userHandler, Mockito.times(0)).createResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(0))
            .getResource(Mockito.any(), Mockito.isNull(), Mockito.isNull(), Mockito.isNull(), Mockito.isNull());
-    Mockito.verify(userHandler, Mockito.times(0)).updateResource(Mockito.any(), Mockito.isNull());
+    Mockito.verify(userHandler, Mockito.times(0)).updateResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     Mockito.verify(userHandler, Mockito.times(1)).deleteResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(0))
            .listResources(Mockito.anyLong(),
@@ -591,7 +591,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
     Mockito.verify(userHandler, Mockito.times(0)).createResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(0))
            .getResource(Mockito.any(), Mockito.isNull(), Mockito.isNull(), Mockito.isNull(), Mockito.isNull());
-    Mockito.verify(userHandler, Mockito.times(0)).updateResource(Mockito.any(), Mockito.isNull());
+    Mockito.verify(userHandler, Mockito.times(0)).updateResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     Mockito.verify(userHandler, Mockito.times(0)).deleteResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(1))
            .listResources(Mockito.eq(1L),
@@ -665,7 +665,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
     Mockito.verify(userHandler, Mockito.times(0)).createResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(0))
            .getResource(Mockito.any(), Mockito.isNull(), Mockito.isNull(), Mockito.isNull(), Mockito.isNull());
-    Mockito.verify(userHandler, Mockito.times(0)).updateResource(Mockito.any(), Mockito.isNull());
+    Mockito.verify(userHandler, Mockito.times(0)).updateResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     Mockito.verify(userHandler, Mockito.times(0)).deleteResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(1))
            .listResources(Mockito.eq(1L),
@@ -732,7 +732,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
     Mockito.verify(userHandler, Mockito.times(0)).createResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(0))
            .getResource(Mockito.any(), Mockito.isNull(), Mockito.isNull(), Mockito.isNull(), Mockito.isNull());
-    Mockito.verify(userHandler, Mockito.times(0)).updateResource(Mockito.any(), Mockito.isNull());
+    Mockito.verify(userHandler, Mockito.times(0)).updateResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     Mockito.verify(userHandler, Mockito.times(0)).deleteResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(1))
            .listResources(Mockito.eq(1L),
@@ -808,7 +808,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
     Mockito.verify(userHandler, Mockito.times(0)).createResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(0))
            .getResource(Mockito.any(), Mockito.isNull(), Mockito.isNull(), Mockito.isNull(), Mockito.isNull());
-    Mockito.verify(userHandler, Mockito.times(0)).updateResource(Mockito.any(), Mockito.isNull());
+    Mockito.verify(userHandler, Mockito.times(0)).updateResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     Mockito.verify(userHandler, Mockito.times(0)).deleteResource(Mockito.any(), Mockito.isNull());
     Mockito.verify(userHandler, Mockito.times(1))
            .listResources(Mockito.eq(1L),
@@ -871,7 +871,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
     MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(BulkResponse.class));
     bulkResponse = (BulkResponse)scimResponse;
     Assertions.assertEquals(HttpStatus.OK, bulkResponse.getHttpStatus());
-    Mockito.verify(userHandler, Mockito.times(maxOperations)).updateResource(Mockito.any(), Mockito.isNull());
+    Mockito.verify(userHandler, Mockito.times(maxOperations)).updateResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     Mockito.verify(userHandler, Mockito.times(maxOperations)).deleteResource(Mockito.any(), Mockito.isNull());
 
     List<BulkResponseOperation> responseOperations = bulkResponse.getBulkResponseOperations();
@@ -2313,7 +2313,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                                                                  httpHeaders,
                                                                  clientAuthorization);
       MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(UpdateResponse.class));
-      Mockito.verify(userHandler, Mockito.times(1)).updateResource(Mockito.any(), Mockito.eq(clientAuthorization));
+      Mockito.verify(userHandler, Mockito.times(1)).updateResource(Mockito.any(), Mockito.eq(clientAuthorization), Mockito.any());
       Mockito.clearInvocations(userHandler);
     }));
     /* ************************************************************************************************************/
@@ -2332,7 +2332,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                           Mockito.eq(clientAuthorization),
                           Mockito.eq(Collections.emptyList()),
                           Mockito.eq(Collections.emptyList()), Mockito.isNull());
-      Mockito.verify(userHandler, Mockito.times(1)).updateResource(Mockito.any(), Mockito.eq(clientAuthorization));
+      Mockito.verify(userHandler, Mockito.times(1)).updateResource(Mockito.any(), Mockito.eq(clientAuthorization), Mockito.any());
       Mockito.clearInvocations(userHandler);
     }));
     /* ************************************************************************************************************/
@@ -2451,7 +2451,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                                                                  httpHeaders,
                                                                  clientAuthorization);
       MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(UpdateResponse.class));
-      Mockito.verify(userHandler, Mockito.times(1)).updateResource(Mockito.any(), Mockito.eq(clientAuthorization));
+      Mockito.verify(userHandler, Mockito.times(1)).updateResource(Mockito.any(), Mockito.eq(clientAuthorization), Mockito.any());
       Mockito.clearInvocations(userHandler);
     }));
     /* ************************************************************************************************************/
@@ -2471,7 +2471,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                           Mockito.eq(Collections.emptyList()),
                           Mockito.eq(Collections.emptyList()),
                           Mockito.isNull());
-      Mockito.verify(userHandler, Mockito.times(1)).updateResource(Mockito.any(), Mockito.eq(clientAuthorization));
+      Mockito.verify(userHandler, Mockito.times(1)).updateResource(Mockito.any(), Mockito.eq(clientAuthorization), Mockito.any());
       Mockito.clearInvocations(userHandler);
     }));
     /* ************************************************************************************************************/

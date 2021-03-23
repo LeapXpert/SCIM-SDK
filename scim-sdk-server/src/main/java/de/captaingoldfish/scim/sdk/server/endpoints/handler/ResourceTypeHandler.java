@@ -88,7 +88,8 @@ public class ResourceTypeHandler extends ResourceHandler<ResourceType>
    * updating of resource types not supported
    */
   @Override
-  public ResourceType updateResource(ResourceType resourceToUpdate, Authorization authorization)
+  public ResourceType updateResource(ResourceType resourceToUpdate, Authorization authorization,
+      Map<String, String> httpHeaders)
   {
     throw new NotImplementedException(ERROR_MESSAGE_SUPPLIER.apply("update"));
   }

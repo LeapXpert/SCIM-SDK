@@ -108,7 +108,8 @@ public class UserHandlerImpl extends ResourceHandler<User>
   }
 
   @Override
-  public User updateResource(User resource, Authorization authorization)
+  public User updateResource(User resource, Authorization authorization,
+      Map<String, String> httpHeaders)
   {
     Assertions.assertTrue(resource.getMeta().isPresent());
     Meta meta = resource.getMeta().get();

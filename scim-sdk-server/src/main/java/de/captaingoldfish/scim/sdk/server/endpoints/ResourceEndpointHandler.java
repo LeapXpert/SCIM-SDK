@@ -796,7 +796,7 @@ class ResourceEndpointHandler
       meta.setLocation(location);
       meta.setResourceType(resourceType.getName());
       resourceNode.setMeta(meta);
-      resourceNode = resourceHandler.updateResource(resourceNode, authorization);
+      resourceNode = resourceHandler.updateResource(resourceNode, authorization, httpHeaders);
       if (resourceNode == null)
       {
         throw new ResourceNotFoundException("the '" + resourceType.getName() + "' resource with id '" + id + "' does "
@@ -890,7 +890,7 @@ class ResourceEndpointHandler
   /**
    * gets the resource that should be patched and will inject the patch operations into the returned resource.
    * After the patch operation has been processed the patched object will be given to the
-   * {@link ResourceHandler#updateResource(ResourceNode, Authorization)} method
+   * {@link ResourceHandler#updateResource(ResourceNode, Authorization, Map)} method
    *
    * @param endpoint the resource endpoint that was called
    * @param id the id of the resource that should be patched
@@ -916,7 +916,7 @@ class ResourceEndpointHandler
   /**
    * gets the resource that should be patched and will inject the patch operations into the returned resource.
    * After the patch operation has been processed the patched object will be given to the
-   * {@link ResourceHandler#updateResource(ResourceNode, Authorization)} method
+   * {@link ResourceHandler#updateResource(ResourceNode, Authorization, Map)} method
    *
    * @param endpoint the resource endpoint that was called
    * @param id the id of the resource that should be patched
@@ -1009,7 +1009,8 @@ class ResourceEndpointHandler
       {
         // a security call In case that someone finds a way to manipulate the id within a patch operation
         patchedResourceNode.setId(id);
-        patchedResourceNode = resourceHandler.updateResource(patchedResourceNode, authorization);
+        patchedResourceNode = resourceHandler.updateResource(patchedResourceNode, authorization,
+            httpHeaders);
         meta = patchedResourceNode.getMeta().orElseThrow(() -> {
           return new InternalServerException("The mandatory meta attribute is missing in the updated user");
         });

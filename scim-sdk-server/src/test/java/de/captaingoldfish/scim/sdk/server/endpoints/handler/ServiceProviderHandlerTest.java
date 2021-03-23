@@ -118,7 +118,8 @@ public class ServiceProviderHandlerTest
   @Test
   public void testUpdateProviders()
   {
-    Assertions.assertThrows(NotImplementedException.class, () -> serviceProviderHandler.updateResource(null, null));
+    Assertions.assertThrows(NotImplementedException.class, () -> serviceProviderHandler.updateResource(null, null,
+        null));
   }
 
   /**

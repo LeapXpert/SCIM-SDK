@@ -471,7 +471,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
   public void testDoNotReturnResourceAfterUpdate()
   {
     User user = JsonHelper.loadJsonDocument(USER_RESOURCE, User.class);
-    Mockito.doReturn(null).when(userHandler).updateResource(Mockito.any(), Mockito.isNull());
+    Mockito.doReturn(null).when(userHandler).updateResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     ScimResponse scimResponse = resourceEndpointHandler.updateResource("/Users",
                                                                        UUID.randomUUID().toString(),
                                                                        user.toString(),
@@ -495,7 +495,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
     User user = JsonHelper.loadJsonDocument(USER_RESOURCE, User.class);
     Mockito.doReturn(JsonHelper.copyResourceToObject(user.deepCopy(), User.class))
            .when(userHandler)
-           .updateResource(Mockito.any(), Mockito.isNull());
+           .updateResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     user.setId(null);
     ScimResponse scimResponse = resourceEndpointHandler.updateResource("/Users",
                                                                        id,
@@ -517,7 +517,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
   public void testThrowScimExceptionOnUpdateResource()
   {
     ResourceNotFoundException exception = new ResourceNotFoundException("blubb", null, null);
-    Mockito.doThrow(exception).when(userHandler).updateResource(Mockito.any(), Mockito.isNull());
+    Mockito.doThrow(exception).when(userHandler).updateResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     ScimResponse scimResponse = resourceEndpointHandler.updateResource("/Users",
                                                                        "123456",
                                                                        readResourceFile(USER_RESOURCE),
@@ -538,7 +538,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
   public void testThrowRuntimeExceptionOnUpdateResource()
   {
     RuntimeException exception = new RuntimeException("blubb");
-    Mockito.doThrow(exception).when(userHandler).updateResource(Mockito.any(), Mockito.isNull());
+    Mockito.doThrow(exception).when(userHandler).updateResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     ScimResponse scimResponse = resourceEndpointHandler.updateResource("/Users",
                                                                        "123456",
                                                                        readResourceFile(USER_RESOURCE),
@@ -1163,12 +1163,12 @@ public class ResourceEndpointHandlerTest implements FileReferences
 
   /**
    * verifies that a {@link ResourceNotFoundException} {@link ErrorResponse} is returned if the developer
-   * returns null on the {@link ResourceHandler#updateResource(ResourceNode, Authorization)} method
+   * returns null on the {@link ResourceHandler#updateResource(ResourceNode, Authorization, Map)} method
    */
   @Test
   public void testReturnNullInDeveloperImplementationOnUpdateResource()
   {
-    Mockito.doReturn(null).when(userHandler).updateResource(Mockito.any(), Mockito.isNull());
+    Mockito.doReturn(null).when(userHandler).updateResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     ScimResponse scimResponse = resourceEndpointHandler.updateResource(EndpointPaths.USERS,
                                                                        UUID.randomUUID().toString(),
                                                                        readResourceFile(USER_RESOURCE),
@@ -1972,7 +1972,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                                                                        null,
                                                                        getBaseUrlSupplier(),
                                                                        null);
-    Mockito.verify(userHandler, Mockito.times(1)).updateResource(Mockito.any(), Mockito.isNull());
+    Mockito.verify(userHandler, Mockito.times(1)).updateResource(Mockito.any(), Mockito.isNull(), Mockito.any());
     MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(UpdateResponse.class));
     Assertions.assertEquals(HttpStatus.OK, scimResponse.getHttpStatus());
     Assertions.assertEquals(HttpHeader.SCIM_CONTENT_TYPE,

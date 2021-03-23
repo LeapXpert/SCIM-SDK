@@ -98,7 +98,8 @@ public class KeystoreHandler extends ResourceHandler<ScimKeystore>
   }
 
   @Override
-  public ScimKeystore updateResource(ScimKeystore resourceToUpdate, Authorization authorization)
+  public ScimKeystore updateResource(ScimKeystore resourceToUpdate, Authorization authorization,
+      Map<String, String> httpHeaders)
   {
     final String id = resourceToUpdate.getId().orElse(null);
     ScimKeystore oldResource = keystoreMap.get(id);

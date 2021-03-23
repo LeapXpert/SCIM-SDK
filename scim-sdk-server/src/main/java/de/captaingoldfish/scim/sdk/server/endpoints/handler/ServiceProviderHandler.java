@@ -87,7 +87,8 @@ public class ServiceProviderHandler extends ResourceHandler<ServiceProvider>
    * updating of service provider configurations not supported
    */
   @Override
-  public ServiceProvider updateResource(ServiceProvider resourceToUpdate, Authorization authorization)
+  public ServiceProvider updateResource(ServiceProvider resourceToUpdate,
+      Authorization authorization, Map<String, String> httpHeaders)
   {
     throw new NotImplementedException(ERROR_MESSAGE_SUPPLIER.apply("update"));
   }

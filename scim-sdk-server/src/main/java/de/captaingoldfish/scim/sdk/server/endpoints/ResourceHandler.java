@@ -164,9 +164,11 @@ public abstract class ResourceHandler<T extends ResourceNode>
    * @param resourceToUpdate the resource that should override an existing one
    * @param authorization should return the roles of an user and may contain arbitrary data needed in the
    *          handler implementation
+   * @param httpHeaders
    * @return the updated resource with the values changed and a new lastModified value
    */
-  public abstract T updateResource(T resourceToUpdate, Authorization authorization);
+  public abstract T updateResource(T resourceToUpdate, Authorization authorization,
+      Map<String, String> httpHeaders);
 
   /**
    * permanently deletes the resource with the given id

@@ -3,6 +3,7 @@ package de.captaingoldfish.scim.sdk.server.endpoints;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
 
 import org.hamcrest.MatcherAssert;
@@ -162,10 +163,11 @@ public class ETagRequestTests
      * method
      */
     @Override
-    public User updateResource(User resource, Authorization authorization)
+    public User updateResource(User resource, Authorization authorization,
+        Map<String, String> httpHeaders)
     {
       Assertions.assertTrue(resource.getMeta().flatMap(Meta::getVersion).isPresent());
-      return super.updateResource(resource, authorization);
+      return super.updateResource(resource, authorization, httpHeaders);
     }
   }
 
