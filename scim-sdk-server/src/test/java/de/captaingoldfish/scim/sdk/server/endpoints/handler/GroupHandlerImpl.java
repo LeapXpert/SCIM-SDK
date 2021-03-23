@@ -64,13 +64,13 @@ public class GroupHandlerImpl extends ResourceHandler<Group>
 
   @Override
   public PartialListResponse listResources(long startIndex,
-                                           int count,
-                                           FilterNode filter,
-                                           SchemaAttribute sortBy,
-                                           SortOrder sortOrder,
-                                           List<SchemaAttribute> attributes,
-                                           List<SchemaAttribute> excludedAttributes,
-                                           Authorization authorization)
+      int count,
+      FilterNode filter,
+      SchemaAttribute sortBy,
+      SortOrder sortOrder,
+      List<SchemaAttribute> attributes,
+      List<SchemaAttribute> excludedAttributes,
+      Authorization authorization, Map<String, String> httpHeaders)
   {
     return PartialListResponse.builder()
                               .resources(new ArrayList<>(inMemoryMap.values()))

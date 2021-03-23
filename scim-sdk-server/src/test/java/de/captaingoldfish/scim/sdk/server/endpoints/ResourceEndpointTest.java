@@ -158,7 +158,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                           Mockito.any(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
     Assertions.assertEquals(BASE_URI + EndpointPaths.USERS + "/" + createdUser.getId().get(),
                             createdUser.getMeta().get().getLocation().get());
   }
@@ -204,7 +204,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                           Mockito.any(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
     Assertions.assertEquals(BASE_URI + EndpointPaths.USERS + "/" + createdUser.getId().get(),
                             createdUser.getMeta().get().getLocation().get());
   }
@@ -287,7 +287,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                           Mockito.any(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
     Assertions.assertEquals(BASE_URI + EndpointPaths.USERS + "/" + returnedUser.getId().get(),
                             returnedUser.getMeta().get().getLocation().get());
   }
@@ -345,7 +345,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                           Mockito.any(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
     Assertions.assertEquals(BASE_URI + EndpointPaths.USERS + "/" + returnedUser.getId().get(),
                             returnedUser.getMeta().get().getLocation().get());
   }
@@ -392,7 +392,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                           Mockito.any(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
     Assertions.assertEquals(BASE_URI + EndpointPaths.USERS + "/" + returnedUser.getId().get(),
                             returnedUser.getMeta().get().getLocation().get());
   }
@@ -449,7 +449,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                           Mockito.any(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
     Assertions.assertEquals(BASE_URI + EndpointPaths.USERS + "/" + returnedUser.getId().get(),
                             returnedUser.getMeta().get().getLocation().get());
   }
@@ -491,7 +491,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                           Mockito.any(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
   }
 
   /**
@@ -544,7 +544,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                           Mockito.any(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
   }
 
   /**
@@ -601,7 +601,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                           Mockito.any(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
     log.warn(listResponse.getListedResources()
                          .stream()
                          .map(userNode -> userNode.get(AttributeNames.RFC7643.ID).textValue())
@@ -675,7 +675,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                           Mockito.any(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
     log.warn(listResponse.getListedResources()
                          .stream()
                          .map(userNode -> userNode.get(AttributeNames.RFC7643.ID).textValue())
@@ -742,7 +742,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                           Mockito.any(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
     log.warn(listResponse.getListedResources()
                          .stream()
                          .map(userNode -> userNode.get(AttributeNames.RFC7643.ID).textValue())
@@ -818,7 +818,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                           Mockito.any(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
     log.warn(listResponse.getListedResources()
                          .stream()
                          .map(userNode -> userNode.get(AttributeNames.RFC7643.ID).textValue())
@@ -2279,7 +2279,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                             Mockito.any(),
                             Mockito.any(),
                             Mockito.any(),
-                            Mockito.eq(clientAuthorization));
+                            Mockito.eq(clientAuthorization), Mockito.any());
       Mockito.clearInvocations(userHandler);
     }));
     /* ************************************************************************************************************/
@@ -2298,7 +2298,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                             Mockito.any(),
                             Mockito.any(),
                             Mockito.any(),
-                            Mockito.eq(clientAuthorization));
+                            Mockito.eq(clientAuthorization), Mockito.any());
       Mockito.clearInvocations(userHandler);
     }));
     /* ************************************************************************************************************/
@@ -2417,7 +2417,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                             Mockito.any(),
                             Mockito.any(),
                             Mockito.any(),
-                            Mockito.eq(clientAuthorization));
+                            Mockito.eq(clientAuthorization), Mockito.any());
       Mockito.clearInvocations(userHandler);
     }));
     /* ************************************************************************************************************/
@@ -2436,7 +2436,7 @@ public class ResourceEndpointTest extends AbstractBulkTest implements FileRefere
                             Mockito.any(),
                             Mockito.any(),
                             Mockito.any(),
-                            Mockito.eq(clientAuthorization));
+                            Mockito.eq(clientAuthorization), Mockito.any());
       Mockito.clearInvocations(userHandler);
     }));
     /* ************************************************************************************************************/

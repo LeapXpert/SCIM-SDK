@@ -607,7 +607,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                                                                       "displayName",
                                                                       "name",
                                                                       getBaseUrlSupplier(),
-                                                                      null);
+                                                                      null, null);
     MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(ErrorResponse.class));
     ErrorResponse errorResponse = (ErrorResponse)scimResponse;
     Assertions.assertEquals(BadRequestException.class, errorResponse.getScimException().getClass());
@@ -801,7 +801,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                           Mockito.any(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
 
     ScimResponse scimResponse = resourceEndpointHandler.listResources(EndpointPaths.USERS,
                                                                       1L,
@@ -812,7 +812,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                                                                       null,
                                                                       null,
                                                                       null,
-                                                                      null);
+                                                                      null, null);
     MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(ListResponse.class));
     ListResponse listResponse = (ListResponse)scimResponse;
     Assertions.assertEquals(totalResults, listResponse.getTotalResults());
@@ -839,7 +839,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                                                                       null,
                                                                       null,
                                                                       null,
-                                                                      null);
+                                                                      null, null);
     MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(ListResponse.class));
     Mockito.verify(userHandler, Mockito.times(1))
            .listResources(Mockito.eq(1L),
@@ -849,7 +849,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                           Mockito.isNull(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
   }
 
   /**
@@ -872,7 +872,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                                                                       null,
                                                                       null,
                                                                       null,
-                                                                      null);
+                                                                      null, null);
     MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(ListResponse.class));
     ResourceType resourceType = resourceTypeFactory.getResourceType(EndpointPaths.USERS);
     SchemaAttribute sortByAttribute = RequestUtils.getSchemaAttributeByAttributeName(resourceType, sortBy);
@@ -884,7 +884,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                           Mockito.eq(SortOrder.ASCENDING),
                           Mockito.eq(Collections.emptyList()),
                           Mockito.eq(Collections.emptyList()),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
   }
 
   /**
@@ -904,7 +904,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                                                                       null,
                                                                       null,
                                                                       null,
-                                                                      null);
+                                                                      null, null);
     MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(ErrorResponse.class));
     ErrorResponse errorResponse = (ErrorResponse)scimResponse;
     Assertions.assertEquals(BadRequestException.class, errorResponse.getScimException().getClass());
@@ -931,7 +931,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                                                                       null,
                                                                       null,
                                                                       null,
-                                                                      null);
+                                                                      null, null);
     MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(ListResponse.class));
     Mockito.verify(userHandler, Mockito.times(1))
            .listResources(Mockito.eq(1L),
@@ -941,7 +941,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                           Mockito.isNull(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
   }
 
   /**
@@ -962,7 +962,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                                                                       null,
                                                                       null,
                                                                       null,
-                                                                      null);
+                                                                      null, null);
     MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(ListResponse.class));
     ResourceType resourceType = resourceTypeFactory.getResourceType(EndpointPaths.USERS);
     SchemaAttribute sortByAttribute = RequestUtils.getSchemaAttributeByAttributeName(resourceType, sortBy);
@@ -975,7 +975,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                           Mockito.eq(actualSortOrder),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
   }
 
   /**
@@ -995,7 +995,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                                                                       null,
                                                                       null,
                                                                       null,
-                                                                      null);
+                                                                      null, null);
     MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(ListResponse.class));
     Mockito.verify(userHandler, Mockito.times(1))
            .listResources(Mockito.eq(1L),
@@ -1005,7 +1005,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                           Mockito.isNull(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
   }
 
   /**
@@ -1026,7 +1026,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                                                                       null,
                                                                       null,
                                                                       null,
-                                                                      null);
+                                                                      null, null);
     MatcherAssert.assertThat(scimResponse.getClass(), Matchers.not(Matchers.typeCompatibleWith(ErrorResponse.class)));
   }
 
@@ -1061,7 +1061,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                                                                       null,
                                                                       null,
                                                                       null,
-                                                                      null);
+                                                                      null, null);
     MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(ListResponse.class));
     ResourceType resourceType = resourceTypeFactory.getResourceType(EndpointPaths.USERS);
     FilterNode filterNode = RequestUtils.parseFilter(resourceType, filter);
@@ -1073,7 +1073,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                           Mockito.isNull(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
   }
 
   /**
@@ -1092,7 +1092,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                           Mockito.any(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
     ScimResponse scimResponse = resourceEndpointHandler.listResources(EndpointPaths.USERS,
                                                                       1L,
                                                                       0,
@@ -1102,7 +1102,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                                                                       null,
                                                                       null,
                                                                       null,
-                                                                      null);
+                                                                      null, null);
     MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(ErrorResponse.class));
     ErrorResponse errorResponse = (ErrorResponse)scimResponse;
     Assertions.assertEquals(InternalServerException.class, errorResponse.getScimException().getClass());
@@ -1111,7 +1111,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
   /**
    * verifies that a {@link NotImplementedException} {@link ErrorResponse} is returned if the developer returns
    * null on the
-   * {@link ResourceHandler#listResources(long, int, FilterNode, SchemaAttribute, SortOrder, List, List, Authorization)}
+   * {@link ResourceHandler#listResources(long, int, FilterNode, SchemaAttribute, SortOrder, List, List, Authorization, Map)}
    * method
    */
   @Test
@@ -1126,7 +1126,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                           Mockito.any(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
     ScimResponse scimResponse = resourceEndpointHandler.listResources(EndpointPaths.USERS,
                                                                       1L,
                                                                       0,
@@ -1136,7 +1136,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                                                                       null,
                                                                       null,
                                                                       null,
-                                                                      null);
+                                                                      null, null);
     MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(ErrorResponse.class));
     ErrorResponse errorResponse = (ErrorResponse)scimResponse;
     Assertions.assertEquals(NotImplementedException.class, errorResponse.getScimException().getClass());
@@ -1270,7 +1270,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                           Mockito.isNull(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
     MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(ListResponse.class));
   }
 
@@ -1303,7 +1303,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                           Mockito.isNull(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
     MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(ListResponse.class));
     ListResponse listResponse = (ListResponse)scimResponse;
     Assertions.assertEquals(resourceTypeFactory.getAllResourceTypes().size(), listResponse.getListedResources().size());
@@ -1336,7 +1336,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                           Mockito.isNull(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
     MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(ListResponse.class));
     ListResponse listResponse = (ListResponse)scimResponse;
     Collection<ResourceType> resourceTypes = resourceTypeFactory.getAllResourceTypes();
@@ -1582,7 +1582,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                           Mockito.isNull(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.isNull());
+                          Mockito.isNull(), Mockito.any());
     MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(ListResponse.class));
     Assertions.assertEquals(HttpStatus.OK, scimResponse.getHttpStatus());
     ListResponse<ScimObjectNode> listResponse = (ListResponse)scimResponse;

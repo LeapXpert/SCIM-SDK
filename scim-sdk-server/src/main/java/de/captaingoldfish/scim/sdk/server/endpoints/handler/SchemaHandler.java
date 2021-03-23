@@ -80,13 +80,13 @@ public class SchemaHandler extends ResourceHandler<Schema>
    */
   @Override
   public PartialListResponse<Schema> listResources(long startIndex,
-                                                   int count,
-                                                   FilterNode filter,
-                                                   SchemaAttribute sortBy,
-                                                   SortOrder sortOrder,
-                                                   List<SchemaAttribute> attributes,
-                                                   List<SchemaAttribute> excludedAttributes,
-                                                   Authorization authorization)
+      int count,
+      FilterNode filter,
+      SchemaAttribute sortBy,
+      SortOrder sortOrder,
+      List<SchemaAttribute> attributes,
+      List<SchemaAttribute> excludedAttributes,
+      Authorization authorization, Map<String, String> httpHeaders)
   {
     List<Schema> allSchemas = resourceTypeFactory.getAllResourceTypes()
                                                  .stream()

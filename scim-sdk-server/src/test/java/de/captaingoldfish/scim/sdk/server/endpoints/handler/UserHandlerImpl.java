@@ -86,13 +86,13 @@ public class UserHandlerImpl extends ResourceHandler<User>
 
   @Override
   public PartialListResponse<User> listResources(long startIndex,
-                                                 int count,
-                                                 FilterNode filter,
-                                                 SchemaAttribute sortBy,
-                                                 SortOrder sortOrder,
-                                                 List<SchemaAttribute> attributes,
-                                                 List<SchemaAttribute> excludedAttributes,
-                                                 Authorization authorization)
+      int count,
+      FilterNode filter,
+      SchemaAttribute sortBy,
+      SortOrder sortOrder,
+      List<SchemaAttribute> attributes,
+      List<SchemaAttribute> excludedAttributes,
+      Authorization authorization, Map<String, String> httpHeaders)
   {
     List<User> resourceNodes = new ArrayList<>(inMemoryMap.values());
     resourceNodes.forEach(user -> {

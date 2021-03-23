@@ -72,13 +72,13 @@ public class ServiceProviderHandler extends ResourceHandler<ServiceProvider>
    */
   @Override
   public PartialListResponse listResources(long startIndex,
-                                           int count,
-                                           FilterNode filter,
-                                           SchemaAttribute sortBy,
-                                           SortOrder sortOrder,
-                                           List<SchemaAttribute> attributes,
-                                           List<SchemaAttribute> excludedAttributes,
-                                           Authorization authorization)
+      int count,
+      FilterNode filter,
+      SchemaAttribute sortBy,
+      SortOrder sortOrder,
+      List<SchemaAttribute> attributes,
+      List<SchemaAttribute> excludedAttributes,
+      Authorization authorization, Map<String, String> httpHeaders)
   {
     throw new NotImplementedException(ERROR_MESSAGE_SUPPLIER.apply("list"));
   }

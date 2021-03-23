@@ -139,17 +139,18 @@ public abstract class ResourceHandler<T extends ResourceNode>
    *          omitting unnecessary table joins
    * @param authorization should return the roles of an user and may contain arbitrary data needed in the
    *          handler implementation
+   * @param httpHeaders
    * @return a list of several resources and a total results value. You may choose to leave the totalResults
    *         value blank but this might lead to erroneous results on the client side
    */
   public abstract PartialListResponse<T> listResources(long startIndex,
-                                                       int count,
-                                                       FilterNode filter,
-                                                       SchemaAttribute sortBy,
-                                                       SortOrder sortOrder,
-                                                       List<SchemaAttribute> attributes,
-                                                       List<SchemaAttribute> excludedAttributes,
-                                                       Authorization authorization);
+      int count,
+      FilterNode filter,
+      SchemaAttribute sortBy,
+      SortOrder sortOrder,
+      List<SchemaAttribute> attributes,
+      List<SchemaAttribute> excludedAttributes,
+      Authorization authorization, Map<String, String> httpHeaders);
 
   /**
    * should update an existing resource with the given one. Simply use the id of the given resource and override

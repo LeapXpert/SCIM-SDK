@@ -95,7 +95,7 @@ public class SchemaHandlerTest
                                                                            null,
                                                                            null,
                                                                            null,
-                                                                           null);
+                                                                           null, null);
     Assertions.assertEquals(allSchemas.size(), listResponse.getResources().size());
   }
 

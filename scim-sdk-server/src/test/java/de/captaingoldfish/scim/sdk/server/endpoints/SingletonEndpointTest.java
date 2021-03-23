@@ -117,7 +117,7 @@ public class SingletonEndpointTest
                           Mockito.any(),
                           Mockito.any(),
                           Mockito.any(),
-                          Mockito.any());
+                          Mockito.any(), Mockito.any());
     log.warn(getResponse.toPrettyString());
   }
 }

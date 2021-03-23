@@ -333,7 +333,7 @@ public final class ResourceEndpoint extends ResourceEndpointHandler
                                uriInfos.getQueryParameters()
                                        .get(AttributeNames.RFC7643.EXCLUDED_ATTRIBUTES.toLowerCase()),
                                uriInfos::getBaseUri,
-                               authorization);
+                               authorization, uriInfos.getHttpHeaders());
         }
         else
         {

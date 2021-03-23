@@ -102,13 +102,13 @@ public class UserHandler extends ResourceHandler<User>
    */
   @Override
   public PartialListResponse<User> listResources(long startIndex,
-                                                 int count,
-                                                 FilterNode filter,
-                                                 SchemaAttribute sortBy,
-                                                 SortOrder sortOrder,
-                                                 List<SchemaAttribute> attributes,
-                                                 List<SchemaAttribute> excludedAttributes,
-                                                 Authorization authorization)
+      int count,
+      FilterNode filter,
+      SchemaAttribute sortBy,
+      SortOrder sortOrder,
+      List<SchemaAttribute> attributes,
+      List<SchemaAttribute> excludedAttributes,
+      Authorization authorization, Map<String, String> httpHeaders)
   {
     List<User> resourceNodes = new ArrayList<>(inMemoryMap.values());
     return PartialListResponse.<User> builder().resources(resourceNodes).totalResults(resourceNodes.size()).build();

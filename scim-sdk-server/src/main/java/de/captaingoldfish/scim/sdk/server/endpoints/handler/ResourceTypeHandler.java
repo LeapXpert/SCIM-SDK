@@ -72,13 +72,13 @@ public class ResourceTypeHandler extends ResourceHandler<ResourceType>
    */
   @Override
   public PartialListResponse listResources(long startIndex,
-                                           int count,
-                                           FilterNode filter,
-                                           SchemaAttribute sortBy,
-                                           SortOrder sortOrder,
-                                           List<SchemaAttribute> attributes,
-                                           List<SchemaAttribute> excludedAttributes,
-                                           Authorization authorization)
+      int count,
+      FilterNode filter,
+      SchemaAttribute sortBy,
+      SortOrder sortOrder,
+      List<SchemaAttribute> attributes,
+      List<SchemaAttribute> excludedAttributes,
+      Authorization authorization, Map<String, String> httpHeaders)
   {
     List<ResourceNode> resourceTypeList = new ArrayList<>(resourceTypeFactory.getAllResourceTypes());
     return PartialListResponse.builder().resources(resourceTypeList).totalResults(resourceTypeList.size()).build();

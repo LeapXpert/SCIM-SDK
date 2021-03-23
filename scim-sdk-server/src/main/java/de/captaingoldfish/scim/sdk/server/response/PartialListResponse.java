@@ -17,7 +17,7 @@ import lombok.Getter;
  * created at: 18.10.2019 - 17:50 <br>
  * <br>
  * this type must be returned by
- * {@link ResourceHandler#listResources(long, int, FilterNode, SchemaAttribute, SortOrder, List, List, Authorization)}
+ * {@link ResourceHandler#listResources(long, int, FilterNode, SchemaAttribute, SortOrder, List, List, Authorization, java.util.Map)}
  * methods
  */
 @Getter

@@ -73,17 +73,17 @@ public class KeystoreHandler extends ResourceHandler<ScimKeystore>
    *          on database level (note that the api will take care of this. You may only use this parameter to
    *          increase * database performance)
    * @param authorization optional attribute: contains authorization information and may contain additional
-   *          request based information if such data is passed to the implementation of the authorization object
+   * @param httpHeaders
    */
   @Override
   public PartialListResponse<ScimKeystore> listResources(long startIndex,
-                                                         int count,
-                                                         FilterNode filter,
-                                                         SchemaAttribute sortBy,
-                                                         SortOrder sortOrder,
-                                                         List<SchemaAttribute> attributes,
-                                                         List<SchemaAttribute> excludedAttributes,
-                                                         Authorization authorization)
+      int count,
+      FilterNode filter,
+      SchemaAttribute sortBy,
+      SortOrder sortOrder,
+      List<SchemaAttribute> attributes,
+      List<SchemaAttribute> excludedAttributes,
+      Authorization authorization, Map<String, String> httpHeaders)
   {
     // filtering is not performed here. Note that the api provides an auto-filtering feature
     // sorting is not performed here. Note that the api provides an auto-sorting feature

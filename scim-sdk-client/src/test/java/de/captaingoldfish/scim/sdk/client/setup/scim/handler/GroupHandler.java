@@ -102,13 +102,13 @@ public class GroupHandler extends ResourceHandler<Group>
    */
   @Override
   public PartialListResponse<Group> listResources(long startIndex,
-                                                  int count,
-                                                  FilterNode filter,
-                                                  SchemaAttribute sortBy,
-                                                  SortOrder sortOrder,
-                                                  List<SchemaAttribute> attributes,
-                                                  List<SchemaAttribute> excludedAttributes,
-                                                  Authorization authorization)
+      int count,
+      FilterNode filter,
+      SchemaAttribute sortBy,
+      SortOrder sortOrder,
+      List<SchemaAttribute> attributes,
+      List<SchemaAttribute> excludedAttributes,
+      Authorization authorization, Map<String, String> httpHeaders)
   {
     List<Group> resourceNodes = new ArrayList<>(inMemoryMap.values());
     return PartialListResponse.<Group> builder().resources(resourceNodes).totalResults(resourceNodes.size()).build();

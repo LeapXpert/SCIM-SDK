@@ -66,13 +66,13 @@ public class ResourceHandlerTest
 
     @Override
     public PartialListResponse listResources(long startIndex,
-                                             int count,
-                                             FilterNode filter,
-                                             SchemaAttribute sortBy,
-                                             SortOrder sortOrder,
-                                             List<SchemaAttribute> attributes,
-                                             List<SchemaAttribute> excludedAttributes,
-                                             Authorization authorization)
+        int count,
+        FilterNode filter,
+        SchemaAttribute sortBy,
+        SortOrder sortOrder,
+        List<SchemaAttribute> attributes,
+        List<SchemaAttribute> excludedAttributes,
+        Authorization authorization, Map<String, String> httpHeaders)
     {
       return null;
     }
@@ -111,13 +111,13 @@ public class ResourceHandlerTest
 
     @Override
     public PartialListResponse<ResourceNode> listResources(long startIndex,
-                                                           int count,
-                                                           FilterNode filter,
-                                                           SchemaAttribute sortBy,
-                                                           SortOrder sortOrder,
-                                                           List list,
-                                                           List excludedAttributes,
-                                                           Authorization authorization)
+        int count,
+        FilterNode filter,
+        SchemaAttribute sortBy,
+        SortOrder sortOrder,
+        List list,
+        List excludedAttributes,
+        Authorization authorization, Map httpHeaders)
     {
       return null;
     }

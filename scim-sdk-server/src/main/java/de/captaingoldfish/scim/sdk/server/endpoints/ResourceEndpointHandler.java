@@ -442,7 +442,7 @@ class ResourceEndpointHandler
                          searchRequest.getAttributes().orElse(null),
                          searchRequest.getExcludedAttributes().orElse(null),
                          baseUrlSupplier,
-                         authorization);
+                         authorization, null);
   }
 
   /**
@@ -499,18 +499,19 @@ class ResourceEndpointHandler
    *          provider configuration that is also an optional attribute. If both ways fail an exception will be
    *          thrown
    * @param authorization
+   * @param httpHeaders
    * @return a {@link ListResponse} with all returned resources or an {@link ErrorResponse}
    */
   protected <T extends ResourceNode> ScimResponse listResources(String endpoint,
-                                                                Long startIndex,
-                                                                Integer count,
-                                                                String filter,
-                                                                String sortBy,
-                                                                String sortOrder,
-                                                                String attributes,
-                                                                String excludedAttributes,
-                                                                Supplier<String> baseUrlSupplier,
-                                                                Authorization authorization)
+      Long startIndex,
+      Integer count,
+      String filter,
+      String sortBy,
+      String sortOrder,
+      String attributes,
+      String excludedAttributes,
+      Supplier<String> baseUrlSupplier,
+      Authorization authorization, Map<String, String> httpHeaders)
   {
     try
     {
@@ -534,7 +535,7 @@ class ResourceEndpointHandler
                                                                        autoSorting ? null : sortOrdering,
                                                                        attributesList,
                                                                        excludedAttributesList,
-                                                                       authorization);
+                                                                       authorization, httpHeaders);
       if (resources == null)
       {
         throw new NotImplementedException("listResources was not implemented for resourceType '"
