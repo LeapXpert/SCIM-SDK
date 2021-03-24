@@ -1,5 +1,6 @@
 package de.captaingoldfish.scim.sdk.server.filter.antlr;
 
+import java.io.Serializable;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -19,7 +20,7 @@ import lombok.Getter;
  */
 @Getter
 @EqualsAndHashCode
-public class FilterAttributeName
+public class FilterAttributeName implements Serializable
 {
 
   /**

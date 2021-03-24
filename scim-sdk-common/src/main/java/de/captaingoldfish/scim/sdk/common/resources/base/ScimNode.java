@@ -1,5 +1,6 @@
 package de.captaingoldfish.scim.sdk.common.resources.base;
 
+import java.io.Serializable;
 import java.util.List;
 
 import de.captaingoldfish.scim.sdk.common.constants.enums.Mutability;
@@ -17,7 +18,7 @@ import de.captaingoldfish.scim.sdk.common.schemas.SchemaAttribute;
  * an implementation with default methods to simulate multiple inheritance to jackson
  * {@link com.fasterxml.jackson.databind.JsonNode}s
  */
-public interface ScimNode
+public interface ScimNode extends Serializable
 {
 
   SchemaAttribute getSchemaAttribute();

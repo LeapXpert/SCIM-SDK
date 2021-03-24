@@ -1,5 +1,6 @@
 package de.captaingoldfish.scim.sdk.server.filter.antlr;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Optional;
@@ -24,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @EqualsAndHashCode(exclude = "context")
-public class CompareValue
+public class CompareValue implements Serializable
 {
 
   /**
