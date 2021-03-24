@@ -1,5 +1,6 @@
 package de.captaingoldfish.scim.sdk.server.filter;
 
+import java.io.Serializable;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +12,7 @@ import lombok.Setter;
  * <br>
  * the abstract tree declaration that will be build when the SCIM filter expression is parsed
  */
-public abstract class FilterNode
+public abstract class FilterNode implements Serializable
 {
 
   /**
