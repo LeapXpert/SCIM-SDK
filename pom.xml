@@ -51,9 +51,9 @@
 
     <modules>
         <module>scim-sdk-server</module>
-        <module>scim-sdk-client</module>
+<!--        <module>scim-sdk-client</module>-->
         <module>scim-sdk-common</module>
-        <module>samples</module>
+<!--        <module>samples</module>-->
     </modules>
 
     <properties>
