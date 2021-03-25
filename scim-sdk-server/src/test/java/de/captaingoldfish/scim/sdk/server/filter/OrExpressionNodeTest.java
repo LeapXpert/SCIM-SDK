@@ -70,6 +70,7 @@ public class OrExpressionNodeTest
     EqualsVerifier.forClass(OrExpressionNode.class)
                   .usingGetClass()
                   .withIgnoredFields("parent", "subAttributeName")
+                  .suppress(Warning.NONFINAL_FIELDS)
                   .withPrefabValues(FilterNode.class, filterNode1, filterNode2)
                   .verify();
   }

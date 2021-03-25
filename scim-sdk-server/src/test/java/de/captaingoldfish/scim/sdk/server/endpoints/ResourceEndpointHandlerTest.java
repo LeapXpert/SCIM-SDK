@@ -186,7 +186,7 @@ public class ResourceEndpointHandlerTest implements FileReferences
                                                                          Collections.emptyMap(),
                                                                          null);
     MatcherAssert.assertThat(deleteResponse.getClass(), Matchers.typeCompatibleWith(DeleteResponse.class));
-    Mockito.verify(userHandler, Mockito.times(1)).deleteResource(userId, null, Mockito.any());
+    Mockito.verify(userHandler, Mockito.times(1)).deleteResource(Mockito.eq(userId), Mockito.isNull(), Mockito.any());
     ScimResponse scimResponse = Assertions.assertDoesNotThrow(() -> resourceEndpointHandler.getResource(endpoint,
                                                                                                         userId));
     MatcherAssert.assertThat(scimResponse.getClass(), Matchers.typeCompatibleWith(ErrorResponse.class));
