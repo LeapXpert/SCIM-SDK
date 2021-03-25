@@ -1,5 +1,9 @@
 package de.captaingoldfish.scim.sdk.server.filter;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.var;
+import nl.jqno.equalsverifier.Warning;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -70,4 +74,25 @@ public class AndExpressionNodeTest
                   .withPrefabValues(FilterNode.class, filterNode1, filterNode2)
                   .verify();
   }
+
+  @Test
+  public void testSerialize() throws JsonProcessingException {
+    final String filter2 = "userName eq \"false\" and (name.givenName PR OR nickName eq \"blubb\") and "
+        + "displayName co \"chuck\"";
+    FilterNode filterNode2 = RequestUtils.parseFilter(userResourceType, filter2);
+    Assertions.assertNotNull(filterNode2);
+
+    ObjectMapper objectMapper = new ObjectMapper();
+    var carAsString = objectMapper.writeValueAsString(filterNode2);
+
+    var filterNode = objectMapper.readValue(carAsString, FilterNode.class);
+    Assertions.assertEquals(AndExpressionNode.class, filterNode.getClass());
+    EqualsVerifier.forClass(AndExpressionNode.class)
+        .usingGetClass()
+        .withIgnoredFields("parent", "subAttributeName")
+        .suppress(Warning.NONFINAL_FIELDS)
+        .withPrefabValues(FilterNode.class, filterNode, filterNode2)
+        .verify();
+  }
+
 }

@@ -3,6 +3,8 @@ package de.captaingoldfish.scim.sdk.server.filter;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 /**
@@ -12,6 +14,7 @@ import lombok.Getter;
  * represents two expressions that should be put together as an or operation
  */
 @EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor
 public final class OrExpressionNode extends FilterNode
 {
 
@@ -19,7 +22,8 @@ public final class OrExpressionNode extends FilterNode
    * the left and the right node of this expression
    */
   @Getter
-  private final FilterNode leftNode, rightNode;
+  @Setter
+  private FilterNode leftNode, rightNode;
 
   public OrExpressionNode(FilterNode leftNode, FilterNode rightNode)
   {

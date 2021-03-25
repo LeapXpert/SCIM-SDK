@@ -6,6 +6,7 @@ import de.captaingoldfish.scim.sdk.server.filter.antlr.ScimFilterParser;
 import de.captaingoldfish.scim.sdk.server.schemas.ResourceType;
 import de.captaingoldfish.scim.sdk.server.utils.RequestUtils;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
@@ -16,6 +17,7 @@ import lombok.Setter;
  * this is a leaf node for resolving patch expressions that will hold the full name of the attribute e.g.
  * name.givenName or userName or emails.primary etc.
  */
+@NoArgsConstructor
 public class AttributePathRoot extends FilterNode
 {
 
@@ -23,18 +25,21 @@ public class AttributePathRoot extends FilterNode
    * if the attribute path expression has a filter expression
    */
   @Getter
-  private final FilterNode child;
+  @Setter
+  private FilterNode child;
 
   /**
    * the fully qualified resource uri if used
    */
-  private final FilterAttributeName filterAttributeName;
+  @Setter
+  private FilterAttributeName filterAttributeName;
 
   /**
    * the schema attribute that represents this attribute name
    */
   @Getter
-  private final SchemaAttribute schemaAttribute;
+  @Setter
+  private SchemaAttribute schemaAttribute;
 
   /**
    * represents the original expression of this node

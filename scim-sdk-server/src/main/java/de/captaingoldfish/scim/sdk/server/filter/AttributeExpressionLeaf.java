@@ -1,10 +1,14 @@
 package de.captaingoldfish.scim.sdk.server.filter;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.apache.commons.lang3.StringUtils;
 
@@ -32,6 +36,7 @@ import lombok.Getter;
  * Represents a comparable expression in the scim filter language like "userName eq 'chuck_norris'"
  */
 @EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor
 public final class AttributeExpressionLeaf extends FilterNode
 {
 
@@ -40,30 +45,40 @@ public final class AttributeExpressionLeaf extends FilterNode
    * schema. if the attribute cannot be found in the represented {@link ResourceType} an
    * {@link InvalidFilterException} is thrown
    */
-  private final FilterAttributeName attributeName;
+  @Setter
+  @Getter
+  @JsonProperty("filterAttributeName")
+  private FilterAttributeName attributeName;
 
   /**
    * the comparator that tells us how the comparison should be executed
    */
   @Getter(AccessLevel.PUBLIC)
-  private final Comparator comparator;
+  @Setter
+  private Comparator comparator;
 
   /**
    * the value of the comparison itself
    */
-  private final CompareValue compareValue;
+  @Setter
+  @Getter
+  @JsonProperty("value")
+  private CompareValue compareValue;
 
   /**
    * the meta information of this attribute
    */
+  @JsonIgnore
   @Getter
-  private final SchemaAttribute schemaAttribute;
+  @Setter
+  private SchemaAttribute schemaAttribute;
 
   /**
    * tells us if the referenced value is part of an extension schema or part of the main schema
    */
   @Getter
-  private final boolean mainSchemaNode;
+  @Setter
+  private boolean mainSchemaNode;
 
   public AttributeExpressionLeaf(ScimFilterParser.AttributeExpressionContext context, ResourceType resourceType)
   {
@@ -99,6 +114,7 @@ public final class AttributeExpressionLeaf extends FilterNode
     this.mainSchemaNode = resourceType.getMainSchema().getId().equals(schemaAttribute.getSchema().getId());
   }
 
+  @JsonIgnore
   public String getParentAttributeName()
   {
     return attributeName.getParentAttributeName();
@@ -193,96 +209,115 @@ public final class AttributeExpressionLeaf extends FilterNode
     return context.compareOperator().getText().toUpperCase();
   }
 
+  @JsonIgnore
   public String getResourceUri()
   {
     return attributeName.getResourceUri();
   }
 
+  @JsonIgnore
   public String getShortName()
   {
     return attributeName.getShortName();
   }
 
+  @JsonIgnore
   public String getFullName()
   {
     return attributeName.getFullName();
   }
 
+  @JsonIgnore
   public String getAttributeName()
   {
     return attributeName.getAttributeName();
   }
 
+  @JsonIgnore
   public String getComplexSubAttributeName()
   {
     return attributeName.getComplexSubAttributeName();
   }
 
+  @JsonIgnore
   public String getValue()
   {
     return compareValue == null ? null : compareValue.getValue();
   }
 
+  @JsonIgnore
   public Optional<Boolean> getBooleanValue()
   {
     return compareValue == null ? Optional.empty() : compareValue.getBooleanValue();
   }
 
+  @JsonIgnore
   public Optional<BigDecimal> getNumberValue()
   {
     return compareValue == null ? Optional.empty() : compareValue.getNumberValue();
   }
 
+  @JsonIgnore
   public Optional<String> getStringValue()
   {
     return compareValue == null ? Optional.empty() : compareValue.getStringValue();
   }
 
+  @JsonIgnore
   public Optional<Instant> getDateTime()
   {
     return compareValue == null ? Optional.empty() : compareValue.getDateTime();
   }
 
+  @JsonIgnore
   public Type getType()
   {
     return schemaAttribute.getType();
   }
 
+  @JsonIgnore
   public Mutability getMutability()
   {
     return schemaAttribute.getMutability();
   }
 
+  @JsonIgnore
   public Uniqueness getUniqueness()
   {
     return schemaAttribute.getUniqueness();
   }
 
+  @JsonIgnore
   public boolean isMultiValued()
   {
     return schemaAttribute.isMultiValued();
   }
 
+  @JsonIgnore
   public boolean isRequired()
   {
     return schemaAttribute.isRequired();
   }
 
+  @JsonIgnore
   public boolean isCaseExact()
   {
     return schemaAttribute.isCaseExact();
   }
 
+  @JsonIgnore
   public List<String> getCanonicalValues()
   {
     return schemaAttribute.getCanonicalValues();
   }
 
+  @JsonIgnore
   public List<ReferenceTypes> getReferenceTypes()
   {
     return schemaAttribute.getReferenceTypes();
   }
 
+  @JsonIgnore
   public boolean isNull()
   {
     return compareValue == null || compareValue.isNull();

@@ -1,8 +1,11 @@
 package de.captaingoldfish.scim.sdk.server.filter;
 
 
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 /**
@@ -12,6 +15,7 @@ import lombok.Getter;
  * represents two expressions that should be put together as an and operation
  */
 @EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor
 public final class AndExpressionNode extends FilterNode
 {
 
@@ -19,7 +23,8 @@ public final class AndExpressionNode extends FilterNode
    * the left and the right node of this expression
    */
   @Getter
-  private final FilterNode leftNode, rightNode;
+  @Setter
+  private FilterNode leftNode, rightNode;
 
   public AndExpressionNode(FilterNode leftNode, FilterNode rightNode)
   {

@@ -3,6 +3,8 @@ package de.captaingoldfish.scim.sdk.server.filter;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 /**
@@ -12,6 +14,7 @@ import lombok.Getter;
  * represents an expression that should be negated
  */
 @EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor
 public final class NotExpressionNode extends FilterNode
 {
 
@@ -19,7 +22,8 @@ public final class NotExpressionNode extends FilterNode
    * the node that should be negated
    */
   @Getter
-  private final FilterNode rightNode;
+  @Setter
+  private FilterNode rightNode;
 
   public NotExpressionNode(FilterNode rightNode)
   {

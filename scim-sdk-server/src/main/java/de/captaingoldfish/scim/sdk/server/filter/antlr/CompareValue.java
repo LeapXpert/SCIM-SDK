@@ -1,5 +1,6 @@
 package de.captaingoldfish.scim.sdk.server.filter.antlr;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -11,8 +12,11 @@ import de.captaingoldfish.scim.sdk.common.exceptions.InvalidFilterException;
 import de.captaingoldfish.scim.sdk.common.schemas.SchemaAttribute;
 import de.captaingoldfish.scim.sdk.common.utils.TimeUtils;
 import de.captaingoldfish.scim.sdk.server.filter.AttributeExpressionLeaf;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -25,18 +29,23 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @EqualsAndHashCode(exclude = "context")
+@NoArgsConstructor
+@AllArgsConstructor
 public class CompareValue implements Serializable
 {
 
   /**
    * the antlr context node that is used to get the value-data of the expression
    */
+  @JsonIgnore
+  @Setter
   private ScimFilterParser.CompareValueContext context;
 
   /**
    * this is used as display variable for the {@link #toString()} method. It holds the value of the context
    */
   @Getter
+  @Setter
   private String value;
 
   /**
@@ -104,6 +113,7 @@ public class CompareValue implements Serializable
   /**
    * @return if this node represents a true-boolean
    */
+  @JsonIgnore
   private boolean isTrue()
   {
     return context.isTrue != null;
@@ -112,6 +122,7 @@ public class CompareValue implements Serializable
   /**
    * @return if this node represents a false-boolean
    */
+  @JsonIgnore
   private boolean isFalse()
   {
     return context.isFalse != null;
@@ -120,6 +131,7 @@ public class CompareValue implements Serializable
   /**
    * @return if this value is null
    */
+  @JsonIgnore
   public boolean isNull()
   {
     return context.isNull != null;
@@ -128,6 +140,7 @@ public class CompareValue implements Serializable
   /**
    * @return if this value is a parsable number
    */
+  @JsonIgnore
   public boolean isNumber()
   {
     return context.number != null;
@@ -137,6 +150,7 @@ public class CompareValue implements Serializable
    * @return if this value is a string value. String value includes also dateTime values. So if
    *         {@link #isDateTime()} evaluates to true then this method will also evaluate to true
    */
+  @JsonIgnore
   public boolean isString()
   {
     return context.string != null;
@@ -145,6 +159,7 @@ public class CompareValue implements Serializable
   /**
    * @return if this value is a valid dateTime value
    */
+  @JsonIgnore
   public boolean isDateTime()
   {
     return getDateTime().isPresent();
@@ -153,6 +168,7 @@ public class CompareValue implements Serializable
   /**
    * @return if this value is of type boolean
    */
+  @JsonIgnore
   public boolean isBoolean()
   {
     return isTrue() || isFalse();
@@ -161,6 +177,7 @@ public class CompareValue implements Serializable
   /**
    * @return gets this node as boolean if it is a boolean
    */
+  @JsonIgnore
   public Optional<Boolean> getBooleanValue()
   {
     boolean isBoolean = isBoolean();
@@ -174,6 +191,7 @@ public class CompareValue implements Serializable
   /**
    * @return gets this node as double if it is a double
    */
+  @JsonIgnore
   public Optional<BigDecimal> getNumberValue()
   {
     if (isNumber())
@@ -193,6 +211,7 @@ public class CompareValue implements Serializable
   /**
    * @return gets this node as string value if it is a string
    */
+  @JsonIgnore
   public Optional<String> getStringValue()
   {
     if (isString())
@@ -205,6 +224,7 @@ public class CompareValue implements Serializable
   /**
    * @return gets this node as dateTime if it is a dateTime
    */
+  @JsonIgnore
   public Optional<Instant> getDateTime()
   {
     if (!isString())

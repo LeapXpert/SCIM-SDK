@@ -1,10 +1,14 @@
 package de.captaingoldfish.scim.sdk.server.filter.antlr;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
 
 import de.captaingoldfish.scim.sdk.common.constants.SchemaUris;
@@ -19,6 +23,9 @@ import lombok.Getter;
  * represents the name of an attribute and will also hold its meta data
  */
 @Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
 public class FilterAttributeName implements Serializable
 {
@@ -93,6 +100,7 @@ public class FilterAttributeName implements Serializable
   /**
    * the short name of the attribute e.g. 'userName' or 'name.givenName'
    */
+  @JsonIgnore
   public String getShortName()
   {
     return StringUtils.stripToNull(StringUtils.stripToEmpty(parentAttributeName)
